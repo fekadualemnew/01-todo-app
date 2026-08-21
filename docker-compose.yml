@@ -1,0 +1,16 @@
+services:
+  app:
+    image: FekaduAlemnew/todo-app:1.0
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: tododb
+    ports:
+      - "5432:5432"
